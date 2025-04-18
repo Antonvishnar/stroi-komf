@@ -47,17 +47,18 @@ class ProjectBloc extends Bloc<ProjectEvent, ProjectState> {
     if (state is ProjectLoaded) {
       final currentState = state as ProjectLoaded;
       _lastQuery = event.query;
+      final filteredProjects = _applyFilters(
+        currentState.projects,
+        _lastQuery,
+        _minPrice,
+        _maxPrice,
+        _floors,
+        _minSquare,
+        _maxSquare,
+      );
       emit(ProjectLoaded(
         projects: currentState.projects,
-        filteredProjects: _applyFilters(
-          currentState.projects,
-          _lastQuery,
-          _minPrice,
-          _maxPrice,
-          _floors,
-          _minSquare,
-          _maxSquare,
-        ),
+        filteredProjects: filteredProjects,
       ));
     }
   }

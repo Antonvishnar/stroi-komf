@@ -80,14 +80,13 @@ class ProjectGrid extends StatelessWidget {
                       mainAxisSpacing: 16,
                       childAspectRatio: 0.7,
                     ),
-                    itemCount: allProjects.length,
+                    itemCount: filteredProjects.length, // Отображаем только отфильтрованные проекты
                     itemBuilder: (context, index) {
-                      final project = allProjects[index];
-                      final isVisible = filteredProjects.contains(project);
+                      final project = filteredProjects[index];
                       return AnimatedProjectCard(
                         key: ValueKey(project.id),
                         project: project,
-                        isVisible: isVisible,
+                        isVisible: true,
                       );
                     },
                   );
