@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:stroi_komf/models/model_detailed_project.dart';
 import 'package:stroi_komf/models/project_model.dart';
 import 'package:stroi_komf/services/detailed_project_service.dart';
+import 'package:stroi_komf/structures/view_3d_button.dart';
+
 
 class ProjectDetailPage extends StatefulWidget {
   final Project project;
@@ -60,6 +62,8 @@ class ProjectDetailPage extends StatefulWidget {
                     ),
                   ),
                   const SizedBox(height: 16,),
+
+                  View3DButton(modelPath: 'assets/3d_models/house.glb'), // #3D VIEW
 
                   //ВКЛАДКИ (Tabs)
                   Expanded(
